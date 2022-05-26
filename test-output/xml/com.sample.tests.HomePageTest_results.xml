@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Free CRM App Test Cases"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.010">
+    <properties></properties>
+
+
+
+            <testcase
+                name="verifyUserNameOnHomePage"
+                time="0.009"
+                classname="com.sample.tests.HomePageTest">
+            </testcase>
+            <testcase
+                name="addNewCardsToAccount"
+                time="0.000"
+                classname="com.sample.tests.HomePageTest">
+            </testcase>
+            <testcase
+                name="addNewCardsToAccount"
+                time="0.001"
+                classname="com.sample.tests.HomePageTest">
+            </testcase>
+</testsuite>
