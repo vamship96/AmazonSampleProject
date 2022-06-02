@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.sample.tests.LoginPageTest">
+      <class name="com.sample.tests.HomePageTest">
         <methods>
           <include name="browserClose"/>
-          <include name="loginTest"/>
+          <include name="verifyUserNameOnHomePage"/>
+          <include name="searchforParticularItem"/>
           <include name="browserStart"/>
         </methods>
-      </class> <!-- com.sample.tests.LoginPageTest -->
+      </class> <!-- com.sample.tests.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

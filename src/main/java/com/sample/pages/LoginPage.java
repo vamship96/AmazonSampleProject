@@ -35,7 +35,7 @@ public LoginPage(Page page) {
 //    }
     commonFunctions commonFunction = new commonFunctions(page);
 
-    public HomePage login(String username, String password) {
+    public HomePage login(String username, String password) throws InterruptedException {
         boolean isLoginSuccess = false;
         commonFunction.clickifElementPresent(loginPageObject.btn_SignIn);
         
@@ -47,12 +47,13 @@ public LoginPage(Page page) {
 
         commonFunction.clickifElementPresent(loginPageObject.btn_Submit);
         
-        boolean isEnabled = page.isEnabled("input");
-        if (isEnabled) {
-            isLoginSuccess = true;
-        }
-    	
-    	
+//        boolean isEnabled = page.isEnabled("input");
+//        if (isEnabled) {
+//            isLoginSuccess = true;
+//        }
+//    	
+//    	
+        Thread.sleep(1000);
         return homePage;
     }
 }

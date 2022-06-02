@@ -17,6 +17,7 @@ public class TestUtil{
 
 	static Workbook book;
 	static Sheet sheet;
+	int a;
 
 	public static Object[][] getTestData(String sheetName) {
 		FileInputStream file = null;
@@ -43,6 +44,10 @@ public class TestUtil{
 			}
 		}
 		return data;
+	}
+	
+	public static void takeScreenshotAtEndOfTest() throws IOException {
+		System.out.println("screenshot");
 	}
 
 }

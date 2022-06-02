@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Free CRM App Test Cases"
-           tests="3"
+<testsuite name="Default test"
+           tests="2"
            failures="0"
            errors="0"
            skipped="0"
-           time="0.010">
+           time="28.299">
     <properties></properties>
 
 
 
             <testcase
+                name="searchforParticularItem"
+                time="28.277"
+                classname="com.sample.tests.HomePageTest">
+            </testcase>
+            <testcase
                 name="verifyUserNameOnHomePage"
-                time="0.009"
-                classname="com.sample.tests.HomePageTest">
-            </testcase>
-            <testcase
-                name="addNewCardsToAccount"
-                time="0.000"
-                classname="com.sample.tests.HomePageTest">
-            </testcase>
-            <testcase
-                name="addNewCardsToAccount"
-                time="0.001"
+                time="0.022"
                 classname="com.sample.tests.HomePageTest">
             </testcase>
 </testsuite>

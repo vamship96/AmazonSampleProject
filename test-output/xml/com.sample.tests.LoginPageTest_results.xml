@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Free CRM App Test Cases"
+<testsuite name="Default test"
            tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="10.315">
+           time="25.267">
     <properties></properties>
 
 
 
             <testcase
                 name="loginTest"
-                time="10.315"
+                time="25.267"
                 classname="com.sample.tests.LoginPageTest">
             </testcase>
 </testsuite>

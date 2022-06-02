@@ -1,7 +1,11 @@
 package com.sample.tests;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.WaitUntilState;
@@ -13,7 +17,21 @@ public class BaseClass {
     BrowserType browserType;
     Browser browser;
     BrowserContext context;
+    public static Properties prop;
     protected Page page;
+    
+    public BaseClass(){
+		try {
+			prop = new Properties();
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/sample"
+					+ "/config/config.properties");
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
     public void launchPlaywright(String browserName, String headless) {
         playwright = Playwright.create();
@@ -44,6 +62,8 @@ public class BaseClass {
         page.navigate(url);
 //        page.waitForSelector("[data-qa='cemaxumuwu']");
     }
+
+    
 
     public void closePlaywright() {
         page.close();

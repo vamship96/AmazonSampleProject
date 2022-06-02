@@ -10,16 +10,19 @@ public class LoginPageTest extends BaseClass {
     HomePage homePage;
 
     @BeforeClass
-    @Parameters({ "url", "browserName" , "headless"})
-    public void browserStart(@Optional("https://www.amazon.in/") String url,
-                                  @Optional("chrome") String browserName, @Optional("false") String headless) {
+    //@Parameters({ "url", "browserName" , "headless"})
+    public void browserStart() {
+    	String browserName = prop.getProperty("browserName");
+    	String headless = prop.getProperty("headless");
+    	String url = prop.getProperty("url");
         launchPlaywright(browserName, headless);
         launchApplication(url);
     }
 
     @Test(priority = 1)
-    @Parameters({ "username", "password" })
-    public void loginTest(@Optional("9550927319") String username, @Optional("Admin@123") String password) {
+    public void loginTest() throws InterruptedException {
+    	String username = prop.getProperty("username");
+    	String password = prop.getProperty("password");
         loginPage = new LoginPage(page);
         homePage = loginPage.login(username, password);
     }
