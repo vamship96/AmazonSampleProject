@@ -28,7 +28,9 @@ public class HomePageTest extends BaseClass {
         launchPlaywright(browserName, headless);
         launchApplication(url);
         loginPage = new LoginPage(page);
+
         homePage = loginPage.login(username, password);
+
     }
     
     @Test
