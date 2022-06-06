@@ -52,8 +52,13 @@ public class BaseClass {
         context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1400, 700));
 //        context.storageState(new BrowserContext.StorageStateOptions().setPath(Paths.get("app.login.json")));
 //        browser.newContext(new Browser.NewContextOptions().setStorageStatePath(Paths.get("app.login.json")));
-        context.close();
-        page = browser.newPage();
+        //context.close();
+        context.tracing().start(new Tracing.StartOptions()
+        		  .setScreenshots(true)
+        		  .setSnapshots(true));
+        
+        page = context.newPage();
+    	
         System.out.println("**** Project Browser Name and Version is : " + browserName + " : " + browser.version());
     }
 
@@ -62,7 +67,11 @@ public class BaseClass {
         page.navigate(url);
 //        page.waitForSelector("[data-qa='cemaxumuwu']");
     }
-
+    
+    public void takeScreenshot(String name) {
+    	System.out.println(name + "failed");
+//    	page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshottest1-" + ".png")));
+    }
     
 
     public void closePlaywright() {

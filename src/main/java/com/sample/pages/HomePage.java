@@ -3,6 +3,7 @@ package com.sample.pages;
 import static org.testng.Assert.assertEquals;
 
 import java.awt.event.MouseEvent;
+import java.nio.file.Paths;
 import java.util.Iterator;
 
 import com.microsoft.playwright.Locator;
@@ -21,8 +22,7 @@ public class HomePage extends commonFunctions{
 			super(page);
 	    }
 	    
-	    commonFunctions commonFunction=new commonFunctions(page);
-	    
+	    commonFunctions commonFunction=new commonFunctions(page);    
 
 	    public void GetUserNameOnHomePage(String matchtext) {
 	    	
@@ -31,14 +31,12 @@ public class HomePage extends commonFunctions{
 	    	commonFunction.elementPresentEqualsText(HomePageObjects.txt_Username, matchtext);
 	    }
 	    
-	    public void selectElectronics() throws InterruptedException
-	    {
+	    public void selectElectronics() throws InterruptedException {
 	    	commonFunction.selectDropdownfromValue(HomePageObjects.input_drpDwn, HomePageObjects.opt_Dropdown);
 	    }
 	    
 	    
-	    public void enterRequiredSearchValue(String string) throws InterruptedException
-	    {
+	    public void enterRequiredSearchValue(String string) throws InterruptedException {
 	    	commonFunction.clearAndEnterText(HomePageObjects.txtBx_SearchBox, string);
 	    	
 	    	commonFunction.pressKey("ArrowDown");
@@ -50,8 +48,7 @@ public class HomePage extends commonFunctions{
 	    }
 	    
 	    
-	    public String clickRequiredItem(String device, String Storage, String color) throws InterruptedException
-	    {
+	    public String clickRequiredItem(String device, String Storage, String color) throws InterruptedException {
 
 	    	String deviceLocator = "";
 	    	
@@ -74,6 +71,8 @@ public class HomePage extends commonFunctions{
 	    	
 	    	//System.out.println(deviceName);
 	    	
+	    	page.hover(deviceLocator);
+	    	
 	    	loc = page.getAttribute(deviceLocator, "href");
 	    	
 	    	String linkOfProduct = "";
@@ -87,8 +86,7 @@ public class HomePage extends commonFunctions{
 	    	return linkOfProduct;
 	    }
 
-	    public void addToCart() throws InterruptedException
-	    {
+	    public void addToCart() throws InterruptedException {
 	    	
 	    	commonFunction.clickifElementPresent(HomePageObjects.btn_AddToCart);
 	    	
@@ -102,39 +100,33 @@ public class HomePage extends commonFunctions{
 	    	
 	    }
 	    
-	    public void navigateToMyAccounts()
-	    {
+	    public void navigateToMyAccounts() {
 	    	
 	    	commonFunction.hoverOverElement(HomePageObjects.lnk_AccountList);
 	    	
 	    	commonFunction.clickifElementPresent(HomePageObjects.opt_YourAccount);
 	    }
 	    
-	    public void selectPayemntOptions()
-	    {
+	    public void selectPayemntOptions() {
 	    	commonFunction.clickifElementPresent(HomePageObjects.btn_PaymentOptions);
 	    }
 	    
 	    public void verifySavedCardsPresent()
 	    {
-	    	if(commonFunction.verifyElementDisplayed(HomePageObjects.hdr_SavedCards))
-	    	{
+	    	if(commonFunction.verifyElementDisplayed(HomePageObjects.hdr_SavedCards)) {
 	    		System.out.println("Saved cards are present");
 	    	}
-	    	else
-	    	{
+	    	else {
 	    		System.out.println("There are No Saved Cards");
 	    	}
 	    }
 	    
-	    public void clickOnAddDebitCreditCard()
-	    {
+	    public void clickOnAddDebitCreditCard() {
 	    	
 	    	commonFunction.verifyElementDisplayed(HomePageObjects.hdr_CreditDebitCardPopUp);
 	    }
 	    
-	    public void enterCreditDebitCardDetails(String cardNumber, String cardName) throws InterruptedException
-	    {
+	    public void enterCreditDebitCardDetails(String cardNumber, String cardName) throws InterruptedException {
 	    	commonFunction.clickifElementPresent(HomePageObjects.btn_AddDebitOrCreditCard);
 	    	
 	    	Thread.sleep(3000);
@@ -162,18 +154,21 @@ public class HomePage extends commonFunctions{
 		    page.frameLocator(".apx-secure-iframe").locator("text=Cancel").click();
 	    }
 	    
-	    public void navigateToCart()
-	    {
+	    public void navigateToCart() {
 	    	commonFunction.clickifElementPresent(HomePageObjects.btn_GlobalCart);
 	    }
 	    
-	    public void verifyDevicePresentInCart(String device, String Storage, String color)
-	    {
-	    	commonFunction.clickifElementPresent(HomePageObjects.lnk_DeselectAll);
-	    	
-	    	String dev = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/ancestor::div[@class='sc-list-item-content']/div/div/label/i)[1]";
-	    	
-	    	page.click(dev);
+	    public void verifyDevicePresentInCart(String device, String Storage, String color) {
+	    	try {
+                commonFunction.clickifElementPresent(HomePageObjects.lnk_SelectAll);
+                commonFunction.clickifElementPresent(HomePageObjects.lnk_DeselectAll);
+            }
+
+            catch (Exception e) {
+                commonFunction.clickifElementPresent(HomePageObjects.lnk_DeselectAll);
+            }
+            String dev = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/ancestor::div[@class='sc-list-item-content']/div/div/label/i)[1]";
+            page.click(dev);
 	    	
 	    }
 	    

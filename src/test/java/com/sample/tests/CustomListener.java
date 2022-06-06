@@ -10,6 +10,7 @@ import com.sample.pages.LoginPage;
 
 public class CustomListener extends BaseClass implements ITestListener {
 	LoginPage loginPage;
+	HomePageTest homepagetest = new HomePageTest();
 
 	@Override		
     public void onFinish(ITestContext Result) 					
@@ -33,18 +34,14 @@ public class CustomListener extends BaseClass implements ITestListener {
     @Override		
     public void onTestFailure(ITestResult Result) 					
     {		
-    System.out.println("The name of the testcase failed is :"+Result.getName());
-    System.out.println(Result.getName()+" test case started");
-    String methodName = Result.getName();
-    loginPage = new LoginPage(page);
-    	//loginPage.takeScreenShot(methodName);
+	    System.out.println("The name of the testcase failed is :"+Result.getName());
     }		
 
     // When Test case get Skipped, this method is called.		
     @Override		
     public void onTestSkipped(ITestResult Result)					
     {		
-    System.out.println("The name of the testcase Skipped is :"+Result.getName());					
+    	System.out.println("The name of the testcase Skipped is :"+Result.getName());					
     }		
 
     // When Test case get Started, this method is called.		
@@ -58,6 +55,6 @@ public class CustomListener extends BaseClass implements ITestListener {
     @Override		
     public void onTestSuccess(ITestResult Result)					
     {		
-    System.out.println("The name of the testcase passed is :"+Result.getName());					
+    	System.out.println("The name of the testcase passed is :"+Result.getName());					
     }
 }

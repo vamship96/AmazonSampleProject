@@ -11,6 +11,7 @@ public enum HomePageObjects implements PageObjects {
 	lnk_firstOption("//div.sg-row",XPATH,"item row"),
 	lnk_AccountList("//a[@id='nav-link-accountList']",XPATH,"Account and List Link"),
 	opt_YourAccount("//span[contains (text(), 'Your Account')]",XPATH,"your account options"),
+	lnk_SelectAll("//a[@id='select-all']",XPATH,"Select All link on Cart"),
 	
 	//Item page
 	btn_AddToCart("//input[@id='add-to-cart-button']",XPATH,"Add To Cart button"),

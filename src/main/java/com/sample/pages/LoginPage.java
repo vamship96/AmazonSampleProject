@@ -26,13 +26,6 @@ public LoginPage(Page page) {
     String passwordBox = "#ap_password";
     String loginButton = "#signInSubmit";
     
-    //input[@id='ap_password']
-//    
-//
-//    public LoginVWOPage(Page page) {
-//        this.page = page;
-//        
-//    }
     commonFunctions commonFunction = new commonFunctions(page);
 
     public HomePage login(String username, String password) throws InterruptedException {

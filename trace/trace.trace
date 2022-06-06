@@ -1,2 +1,0 @@
-{"version":3,"type":"context-options","browserName":"chromium","options":{"viewport":{"width":1400,"height":700}},"platform":"darwin","wallTime":1653972068760}
-{"type":"action","metadata":{"id":"call@15","apiName":"Tracing.stop","objectId":"browser-context@41a3c8e773ea2c1fc9f17ed40a6457f1","wallTime":1653972083395,"startTime":134845532.234,"endTime":0,"type":"BrowserContext","method":"tracingStopChunk","params":{"save":true,"skipCompress":false},"log":[],"snapshots":[],"afterSnapshot":"after@call@15","error":{"error":{"name":"Error","message":"Action was interrupted"}}}}

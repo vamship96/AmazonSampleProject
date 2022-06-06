@@ -6,8 +6,7 @@
       <class name="com.sample.tests.HomePageTest">
         <methods>
           <include name="browserClose"/>
-          <include name="verifyUserNameOnHomePage"/>
-          <include name="searchforParticularItem"/>
+          <include name="searchforParticularItem" invocation-numbers="0"/>
           <include name="browserStart"/>
         </methods>
       </class> <!-- com.sample.tests.HomePageTest -->

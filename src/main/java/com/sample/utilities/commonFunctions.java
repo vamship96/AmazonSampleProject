@@ -1,5 +1,9 @@
 package com.sample.utilities;
 
+import static org.testng.Assert.fail;
+
+import org.testng.Assert;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import PageObjects.*;
@@ -101,6 +105,7 @@ public class commonFunctions {
 			else
 			{
 				System.out.println(strObjName + " not matched with " + matchText);
+				Assert.fail("this step is failed");
 			}
 			
 	 }

@@ -2,8 +2,13 @@ package com.sample.tests;
 
 import com.sample.pages.HomePage;
 import com.sample.pages.LoginPage;
+
+import static org.testng.Assert.assertEquals;
+
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+@Listeners(CustomListener.class)
 
 public class LoginPageTest extends BaseClass {
     LoginPage loginPage;

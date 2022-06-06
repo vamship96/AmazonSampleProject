@@ -13,7 +13,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class TestUtil{
 
 	public static String TESTDATA_SHEET_PATH = "/Users/pavamshikrishna/eclipse-workspace"
-			+ "/SampleProject/src/main/java/com/sample/testdata/FreeCrmTestData.xlsx";
+			+ "/SampleProject/src/main/java/com/sample/testdata/ListOfItems.xlsx";
 
 	static Workbook book;
 	static Sheet sheet;
