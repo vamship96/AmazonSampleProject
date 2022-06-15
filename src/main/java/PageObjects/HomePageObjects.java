@@ -9,7 +9,7 @@ public enum HomePageObjects implements PageObjects {
 	input_drpDwn("select#searchDropdownBox",CSS,"category DropDown"),
 	opt_Dropdown("search-alias=electronics",CSS,"Electronics Option"),
 	lnk_firstOption("//div.sg-row",XPATH,"item row"),
-	lnk_AccountList("//a[@id='nav-link-accountList']",XPATH,"Account and List Link"),
+	lnk_AccountList("//a[@id='nav-link-accountList']",XPATH,"Account & Lists Link"),
 	opt_YourAccount("//span[contains (text(), 'Your Account')]",XPATH,"your account options"),
 	lnk_SelectAll("//a[@id='select-all']",XPATH,"Select All link on Cart"),
 	

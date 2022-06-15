@@ -6,8 +6,12 @@
       <class name="com.sample.tests.HomePageTest">
         <methods>
           <include name="browserClose"/>
-          <include name="searchforParticularItem" invocation-numbers="0"/>
+          <include name="verifyUserNameOnHomePage"/>
+          <include name="searchforParticularItem"/>
+          <include name="verifyItemAddedToCart"/>
+          <include name="deselectItems"/>
           <include name="browserStart"/>
+          <include name="addPayementOptions"/>
         </methods>
       </class> <!-- com.sample.tests.HomePageTest -->
     </classes>

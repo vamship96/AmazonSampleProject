@@ -43,16 +43,10 @@ public class BaseClass {
         }
         if (headless.equalsIgnoreCase("true")) {
             browser = browserType.launch(new BrowserType.LaunchOptions().setChannel(browserName).setSlowMo(2000).setHeadless(true));
-//            browser.newContext(new Browser.NewContextOptions().setStorageStatePath(Paths.get("app.login.json")));
-//            context.storageState(new BrowserContext.StorageStateOptions().setPath(Paths.get("app.login.json")));
         } else {
             browser = browserType.launch(new BrowserType.LaunchOptions().setChannel(browserName).setSlowMo(2000).setHeadless(false));
-//            browser.newContext(new Browser.NewContextOptions().setStorageStatePath(Paths.get("app.login.json")));
         }
         context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1400, 700));
-//        context.storageState(new BrowserContext.StorageStateOptions().setPath(Paths.get("app.login.json")));
-//        browser.newContext(new Browser.NewContextOptions().setStorageStatePath(Paths.get("app.login.json")));
-        //context.close();
         context.tracing().start(new Tracing.StartOptions()
         		  .setScreenshots(true)
         		  .setSnapshots(true));
@@ -63,14 +57,11 @@ public class BaseClass {
     }
 
     public void launchApplication(String url) {
-//        page.navigate(url, new Page.NavigateOptions().setWaitUntil(WaitUntilState.NETWORKIDLE));
         page.navigate(url);
-//        page.waitForSelector("[data-qa='cemaxumuwu']");
     }
     
     public void takeScreenshot(String name) {
     	System.out.println(name + "failed");
-//    	page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshottest1-" + ".png")));
     }
     
 

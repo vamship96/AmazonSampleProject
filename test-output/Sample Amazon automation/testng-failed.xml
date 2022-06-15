@@ -9,7 +9,10 @@
       <class name="com.sample.tests.HomePageTest">
         <methods>
           <include name="browserClose"/>
+          <include name="verifyUserNameOnHomePage"/>
+          <include name="searchforParticularItem"/>
           <include name="verifyItemAddedToCart"/>
+          <include name="deselectItems"/>
           <include name="browserStart"/>
           <include name="addPayementOptions"/>
         </methods>

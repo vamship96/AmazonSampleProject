@@ -9,9 +9,7 @@
 
 	<test name="Amazon Test Cases">
 		<classes>
-			<!--  <class name="com.sample.tests.LoginPageTest"></class>-->
 			<class name="com.sample.tests.HomePageTest"></class>
-
 		</classes>
 	</test>
 </suite>

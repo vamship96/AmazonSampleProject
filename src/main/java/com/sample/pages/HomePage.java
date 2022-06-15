@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
+import org.testng.Assert;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.sample.utilities.commonFunctions;
@@ -50,8 +52,7 @@ public class HomePage extends commonFunctions{
 	    
 	    public String clickRequiredItem(String device, String Storage, String color) throws InterruptedException {
 
-	    	String deviceLocator = "";
-	    	
+	    	String deviceLocator = "";	    	
 	    	Locator devices = page.locator("//span[@class='a-size-medium a-color-base a-text-normal']");
 	    	System.out.println(devices.count());
 	    	
@@ -59,8 +60,9 @@ public class HomePage extends commonFunctions{
 	    		String deviceName = devices.nth(i).textContent();
 	    		System.out.println(deviceName);
 	    		if(deviceName.contains(device) && deviceName.contains(Storage) && deviceName.contains(color)) {
-	    				deviceLocator = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/parent::a)[1]";
-	    				System.out.println(deviceLocator);
+	    				//deviceLocator = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/parent::a)[1]";
+	    			deviceLocator = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/parent::a[@target=\"_blank\"])[1]";
+	    			System.out.println(deviceLocator);
 	    				break;
 	    		} else {
 	    			continue;
@@ -71,7 +73,7 @@ public class HomePage extends commonFunctions{
 	    	
 	    	//System.out.println(deviceName);
 	    	
-	    	page.hover(deviceLocator);
+	    	//page.hover(deviceLocator);
 	    	
 	    	loc = page.getAttribute(deviceLocator, "href");
 	    	
@@ -81,7 +83,17 @@ public class HomePage extends commonFunctions{
 
 	    	System.out.println(linkOfProduct);
 	    	
-	    	page.navigate(linkOfProduct);
+	    	if(linkOfProduct.equalsIgnoreCase("https://www.amazon.in/javascript:void(0);")) {
+	    		linkOfProduct= "https://www.amazon.in/"+page.getAttribute(deviceLocator, "href");
+	    		if (linkOfProduct.equalsIgnoreCase("https://www.amazon.in/javascript:void(0);")) {
+		    		page.navigate("https://www.amazon.in/");
+	    		}	
+	    		Assert.fail("search for a perticular product failed");
+	    	} else {
+	    		page.navigate(linkOfProduct);
+	    	}
+	    	
+	    	
 			
 	    	return linkOfProduct;
 	    }
@@ -158,7 +170,7 @@ public class HomePage extends commonFunctions{
 	    	commonFunction.clickifElementPresent(HomePageObjects.btn_GlobalCart);
 	    }
 	    
-	    public void verifyDevicePresentInCart(String device, String Storage, String color) {
+	    public void deselectAllInCart() {
 	    	try {
                 commonFunction.clickifElementPresent(HomePageObjects.lnk_SelectAll);
                 commonFunction.clickifElementPresent(HomePageObjects.lnk_DeselectAll);
@@ -167,7 +179,10 @@ public class HomePage extends commonFunctions{
             catch (Exception e) {
                 commonFunction.clickifElementPresent(HomePageObjects.lnk_DeselectAll);
             }
-            String dev = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/ancestor::div[@class='sc-list-item-content']/div/div/label/i)[1]";
+	    }
+	    
+	    public void verifyDevicePresentInCart(String device, String Storage, String color) {
+            String dev = "(//span[contains (text(), '"+device+"') and contains (text(), '"+Storage+"') and  contains (text(), '"+color+"')]/ancestor::div[@class='sc-list-item-content']/div/div//label/i)[1]";
             page.click(dev);
 	    	
 	    }

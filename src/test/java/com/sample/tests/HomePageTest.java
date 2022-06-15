@@ -54,7 +54,7 @@ public class HomePageTest extends BaseClass {
 		return data;
 	}
 	
-	@Test(priority = 2, dataProvider="getCRMTestData")
+	@Test(priority = 2, dataProvider="getCRMTestData", dependsOnMethods = {"verifyUserNameOnHomePage"})
 	public void searchforParticularItem(String searchKey, String ResultKey1, String ResultKey2, String ResultKey3) throws InterruptedException
 	{
 		homePage.selectElectronics();
@@ -63,20 +63,27 @@ public class HomePageTest extends BaseClass {
 		homePage.addToCart();
 	}
 	
-//	@Test(priority = 3)
-//	public void addPayementOptions() throws InterruptedException
-//	{
-//		homePage.navigateToMyAccounts();
-//		homePage.selectPayemntOptions();
-//		homePage.verifySavedCardsPresent();
-//		homePage.clickOnAddDebitCreditCard();
-//		
-//		String crediCardNumber = prop.getProperty("crediCardNumber");
-//    	String nameOnCard = prop.getProperty("nameOnCard");
-//		homePage.enterCreditDebitCardDetails(crediCardNumber, nameOnCard);
-//	}
+	@Test(priority = 3,  dependsOnMethods = {"verifyUserNameOnHomePage"})
+	public void addPayementOptions() throws InterruptedException
+	{
+		homePage.navigateToMyAccounts();
+		homePage.selectPayemntOptions();
+		homePage.verifySavedCardsPresent();
+		homePage.clickOnAddDebitCreditCard();
+		
+		String crediCardNumber = prop.getProperty("crediCardNumber");
+    	String nameOnCard = prop.getProperty("nameOnCard");
+		homePage.enterCreditDebitCardDetails(crediCardNumber, nameOnCard);
+	}
 	
-	@Test(priority = 4,  dataProvider="getCRMTestData")
+	@Test(priority = 4,  dependsOnMethods = {"verifyUserNameOnHomePage"})
+	public void deselectItems()
+	{
+		homePage.navigateToCart();
+		homePage.deselectAllInCart();
+	}
+	
+	@Test(priority = 5,  dataProvider="getCRMTestData",  dependsOnMethods = {"verifyUserNameOnHomePage"})
 	public void verifyItemAddedToCart(String searchKey, String ResultKey1, String ResultKey2, String ResultKey3) throws InterruptedException
 	{
 		homePage.navigateToCart();

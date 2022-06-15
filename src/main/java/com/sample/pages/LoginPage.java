@@ -14,10 +14,6 @@ public LoginPage(Page page) {
 		// TODO Auto-generated constructor stub
 	}
 
-//private static final Page page = null;
-
-
-//    private final Page page;
     HomePage homePage;
     
     
@@ -40,12 +36,7 @@ public LoginPage(Page page) {
 
         commonFunction.clickifElementPresent(loginPageObject.btn_Submit);
         
-//        boolean isEnabled = page.isEnabled("input");
-//        if (isEnabled) {
-//            isLoginSuccess = true;
-//        }
-//    	
-//    	
+   	
         Thread.sleep(1000);
         return homePage;
     }

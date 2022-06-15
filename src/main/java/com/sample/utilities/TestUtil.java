@@ -45,9 +45,5 @@ public class TestUtil{
 		}
 		return data;
 	}
-	
-	public static void takeScreenshotAtEndOfTest() throws IOException {
-		System.out.println("screenshot");
-	}
 
 }
